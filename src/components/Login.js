@@ -33,16 +33,18 @@ const Login = ({authedUser, dispatch, users}) => {
         navigate('/home')
         setDetails({username:"",password:""})
     }
-    
+
 
   return (
-    <div className='flex items-center justify-center h-screen'>
-        
-        <form className='flex flex-col h-1/2 justify-between'>
-            <input type="text" placeholder='username' value={details.username} name='username' onChange={handleChange} className='border-4 px-0.5 py-1 outline-none'/>
-            <input type="text" placeholder='password' value={details.password} name='password' onChange={handleChange} className='border-4 px-0.5 py-1 outline-none'/>
-            <button className='bg-indigo-500 px-1 py-1 text-slate-200' onClick={handleClick}>Login</button>
-        </form>
+    <div className='flex flex-col items-center justify-center h-screen'>
+        <h1 className='h-1/3 w-4/5 font-bold'>Employee Polls</h1>
+        <div className='h-2/3'>
+            <form className='flex flex-col h-2/3 justify-between'>
+                <input type="text" placeholder='username' value={details.username} name='username' onChange={handleChange} className='p-2 outline-none border-2 border-indigo-500'/>
+                <input type="text" placeholder='password' value={details.password} name='password' onChange={handleChange} className='p-2 outline-none border-2 border-indigo-500'/>
+                <button className='bg-indigo-500 px-1 py-1 text-slate-200' onClick={handleClick}>Login</button>
+            </form>
+        </div>
     </div>
   )
 }
