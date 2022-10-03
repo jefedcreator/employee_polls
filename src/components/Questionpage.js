@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { useLocation, useNavigate, useParams, Navigate } from "react-router-dom";
 import { handleVoteQuestion } from '../actions/questions';
 import { BsCheck } from "react-icons/bs";
+import Error from './Error';
 
 
 const withRouter = (Component) => {
@@ -20,17 +21,21 @@ const withRouter = (Component) => {
 const Questionpage = ({question, authedUser, dispatch, user, users}) => {
 
     // useEffect(()=>{
-    //     if (question == undefined) {
+    //     if (error == undefined) {
     //        return <Navigate to="/error" replace />
     //     }
     // },[])
 
+    if (question == undefined) {
+        return <Error/>
+    }
+
+    else{
     const { id, author, optionOne, optionTwo } = question
 
     const { answers } = user
 
     const { avatarURL } = users[author]
-
 
     const myOption = answers[id];
 
@@ -137,16 +142,19 @@ const Questionpage = ({question, authedUser, dispatch, user, users}) => {
     </div>
   )
 }
+}
 
 const mapStateToProps = ({ questions, authedUser, users },props) => {
     const {id} = props.router.params
     const question = questions[id];
     const user = users[authedUser];
+    // const error = id
     return {
         question,
         authedUser,
         user,
-        users
+        users,
+        // error
     };
 }
 
