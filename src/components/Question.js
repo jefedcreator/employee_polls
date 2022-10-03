@@ -1,12 +1,11 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import questions from '../reducers/questions';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { formatDate } from '../utils/helper';
 
 
-const Home = ({ question, authedUser, users }) => {
-    const { id, author, timestamp, optionOne, optionTwo } = question
+const Home = ({ question }) => {
+    const { id, author, timestamp } = question
 
     const navigate = useNavigate()
 

@@ -3,7 +3,7 @@ let users = {
     id: 'sarahedo',
     password:'password123',
     name: 'Sarah Edo',
-    avatarURL: null,
+    avatarURL: 'https://res.cloudinary.com/hemi/image/upload/v1664703178/employee-polls-udacity/edward-cisneros-_H6wpor9mjs-unsplash_b2dlb5.jpg',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -16,7 +16,7 @@ let users = {
     id: 'tylermcginnis',
     password:'abc321',
     name: 'Tyler McGinnis',
-    avatarURL: null,
+    avatarURL: 'https://res.cloudinary.com/hemi/image/upload/v1664705538/employee-polls-udacity/linkedin-sales-solutions-pAtA8xe_iVM-unsplash_abrxd9.jpg',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -27,7 +27,7 @@ let users = {
     id: 'mtsamis',
     password:'xyz123',
     name: 'Mike Tsamis',
-    avatarURL: null,
+    avatarURL: 'https://res.cloudinary.com/hemi/image/upload/v1664703188/employee-polls-udacity/joseph-gonzalez-iFgRcqHznqg-unsplash_cy7vsj.jpg',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -39,7 +39,7 @@ let users = {
     id: 'zoshikanlu',
     password:'pass246',
     name: 'Zenobia Oshikanlu',
-    avatarURL: null,
+    avatarURL: 'https://res.cloudinary.com/hemi/image/upload/v1664703215/employee-polls-udacity/jurica-koletic-7YVZYZeITc8-unsplash_qszbfi.jpg',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
     },
@@ -144,16 +144,16 @@ export function _getQuestions () {
   })
 }
 
-function formatUser ({username, password}) {
-  return {
-    id: username,
-    password,
-    name: username,
-    avatarURL : null,
-    answers: {},
-    questions: []
-  }
-}
+// function formatUser ({username, password}) {
+//   return {
+//     id: username,
+//     password,
+//     name: username,
+//     avatarURL : null,
+//     answers: {},
+//     questions: []
+//   }
+// }
 
 function formatQuestion ({ optionOneText, optionTwoText, author }) {
   return {

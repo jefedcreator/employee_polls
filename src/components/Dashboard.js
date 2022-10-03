@@ -2,14 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
 
-const Questions = ({questions, users, authedUser, usersObj, loading}) => {
-  const { id, answers, timestamp, optionOne, optionTwo } = usersObj[authedUser]
-
-  console.log("usersObj:", usersObj);
-
-  console.log("id is:", id);
-  console.log("question is", questions);
-  console.log("answers is:", Object.keys(answers));
+const Dashboard = ({questions, authedUser, usersObj}) => {
+  const { answers } = usersObj[authedUser]
 
   return  (
     <div className='w-full h-4/5'>
@@ -39,9 +33,8 @@ const mapStateToProps = ({ questions,users, authedUser }) => ({
   usersObj: users,
   users: Object.keys(users).sort((a,b) => users[b].questions.length - users[a].questions.length),
   authedUser,
-//   questionsObj: questions,
   loading: authedUser === null,
 })
 
 
-export default connect(mapStateToProps)(Questions)
+export default connect(mapStateToProps)(Dashboard)

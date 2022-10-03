@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { handleVoteQuestion, voteQuestions } from '../actions/questions';
-import { _saveQuestionAnswer } from '../utils/_DATA';
+import { handleVoteQuestion } from '../actions/questions';
 import { BsCheck } from "react-icons/bs";
 
 
@@ -17,16 +16,33 @@ const withRouter = (Component) => {
     return ComponentWithRouterProp;
 };
 
-const Questionpage = ({question, authedUser, dispatch, user}) => {
+const Questionpage = ({question, authedUser, dispatch, user, users}) => {
+
     const { id, author, optionOne, optionTwo } = question
 
     const { answers } = user
 
+    const { avatarURL } = users[author]
+
+
     const myOption = answers[id];
+
+    const votes1 = parseInt(optionOne.votes.length)
+    const votes2 = parseInt(optionTwo.votes.length)
+    const totalVotes = votes1 + votes2;
+
+    const getoptionOnePecentage = () =>{
+        let percent = (votes1 / totalVotes) * 100;
+        return parseInt(percent)
+    }
+
+    const getoptionTwoPecentage = () => {
+        let percent = (votes2 / totalVotes) * 100;
+        return parseInt(percent)
+    }
 
 
     const handleVote = (e) =>{
-        console.log("vote id:", id, "user:", authedUser, "option:", e.target.id);
         const voteId = Number(e.target.id)
         dispatch(handleVoteQuestion({
             authedUser,
@@ -40,41 +56,72 @@ const Questionpage = ({question, authedUser, dispatch, user}) => {
         <h2 className='font-bold'>{`Poll by ${author}`}</h2>
         <div className='flex flex-col justify-around items-center h-full'>
         <h3 className='font-bold'>Would you rather?</h3>
+        <img src={avatarURL} alt="" className='w-20 h-20'/>
             {
-                myOption == undefined ?
+                myOption === undefined ?
                 (
                     <div className='flex w-1/2 text-center justify-between'>
                         <div className='cursor-pointer'>
                             <p id={1} onClick={handleVote}>{`${optionOne.text}?`}</p>
+                            {/* <p>{`${getoptionOnePecentage()}%`}</p> */}
                         </div>
                         <div className='cursor-pointer'>
                             <p id={2} onClick={handleVote}>{`${optionTwo.text}?`}</p>
+                            {/* <p>{`${getoptionTwoPecentage()}%`}</p> */}
                         </div>
                     </div>
                 ) : (
                     <div className='flex w-2/3 text-center justify-between items-center'>
                         <div>
                             {
-                                myOption == "optionOne" 
-                                ? 
-                                <span className='flex items-center bg-indigo-500 px-3 py-2 text-slate-200 cursor-pointer'>
-                                    <p id={1} onClick={handleVote}>{`${optionOne.text}`}</p> 
-                                    <BsCheck color='white'/>
-                                </span>
-                                : 
-                                <p id={1} onClick={handleVote} className='cursor-pointer'>{`${optionOne.text}`}</p>
+                                myOption === "optionOne" 
+                                ?
+                                <div>
+                                    <span className='flex items-center bg-indigo-500 px-3 py-2 text-slate-200'>
+                                        <p>{`${optionOne.text}`}</p> 
+                                        <BsCheck color='white'/>
+                                        <p>{`${getoptionOnePecentage()}%`}</p>
+                                    </span>
+                                    <span>
+                                        <p>{votes1}</p>
+                                    </span>
+                                </div> 
+                                :
+                                <div>
+                                    <span>
+                                        <p>{`${optionOne.text}`}</p>
+                                        <p>{`${getoptionTwoPecentage()}%`}</p>
+                                    </span>
+                                    <span>
+                                        <p>{votes1}</p>
+                                    </span>
+                                </div>
                             }
                         </div>
                         <div>
                             {
-                                myOption == "optionTwo" 
-                                ? 
-                                <span className='flex items-center bg-indigo-500 px-3 py-2 text-slate-200 cursor-pointer'>
-                                    <p id={2} onClick={handleVote}>{`${optionTwo.text}`}</p> 
-                                    <BsCheck color='white'/>
-                                </span>
+                                myOption === "optionTwo" 
+                                ?
+                                <div>
+                                    <span className='flex items-center bg-indigo-500 px-3 py-2 text-slate-200'>
+                                        <p>{`${optionTwo.text}`}</p> 
+                                        <BsCheck color='white'/>
+                                        <p>{`${getoptionOnePecentage()}%`}</p>
+                                    </span>
+                                    <span>
+                                        <p>{votes2}</p>
+                                    </span>
+                                </div> 
                                 :
-                                <p id={2} onClick={handleVote} className='cursor-pointer'>{`${optionTwo.text}`}</p> 
+                                <div>
+                                    <span>
+                                        <p>{`${optionTwo.text}`}</p> 
+                                        <p>{`${getoptionTwoPecentage()}%`}</p>
+                                    </span>
+                                    <span>
+                                        <p>{votes2}</p>
+                                    </span>
+                                </div>
                             }
                         </div>
                     </div>
@@ -92,7 +139,8 @@ const mapStateToProps = ({ questions, authedUser, users },props) => {
     return {
         question,
         authedUser,
-        user
+        user,
+        users
     };
 }
 

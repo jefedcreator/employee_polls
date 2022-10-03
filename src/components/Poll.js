@@ -26,7 +26,7 @@ const Poll = ({dispatch, authedUser}) => {
             author:authedUser
         }))
         setPoll({optionOneText:"",optionTwoText:""})
-        navigate('/home')
+        navigate('/questions')
     }
 
   return (
@@ -35,9 +35,9 @@ const Poll = ({dispatch, authedUser}) => {
         <div className='h-4/5 flex flex-col justify-around items-center'>
             <p>Create your own poll</p>
             <form className='h-1/2 flex flex-col justify-between'>
-                <input name='optionOneText' type="text" placeholder='first question' value={poll.optionOneText} onChange={handlePoll} className='outline-indigo-500 p-3 border-2 border-indigo-500'/>
-                <input name='optionTwoText' type="text" placeholder='second question' value={poll.optionTwoText} onChange={handlePoll} className='outline-indigo-500 p-3 border-2 border-indigo-500'/>
-                <button onClick={handleSubmit} className='bg-indigo-500 px-3 py-2 text-slate-200 cursor-pointer'>
+                <input name='optionOneText' type="text" placeholder='first question' value={poll.optionOneText} onChange={handlePoll} className='outline-indigo-500 p-3 border-2 border-indigo-500' data-testid='firstoption-input'/>
+                <input name='optionTwoText' type="text" placeholder='second question' value={poll.optionTwoText} onChange={handlePoll} className='outline-indigo-500 p-3 border-2 border-indigo-500' data-testid='secondoption-input'/>
+                <button onClick={handleSubmit} className='bg-indigo-500 px-3 py-2 text-slate-200 cursor-pointer' data-testid='submit-button'>
                     Create
                 </button>
             </form>

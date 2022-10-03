@@ -1,27 +1,13 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
-import questions from '../reducers/questions';
-import users from '../reducers/users';
-import Home from './Home';
-import Leaderboard from './Leaderboard';
+import Home from './Home'
 import Login from './Login';
-import Nav from './Nav';
 import { LoadingBar } from 'react-redux-loading-bar';
-import { Route, Routes } from 'react-router-dom';
-import Questions from './Questions';
-import Questionpage from './Questionpage';
-import Poll from './Poll';
 
-function App({questions,users, usersObj , dispatch, authedUser, loading}) {
+
+function App({dispatch, authedUser}) {
   
-  // const ansArr = Object.keys(props.users[props.authedUser].answers)
-  // console.log("answer arr:",props.usersObj[props.authedUser]);
-  // const { id, answers, timestamp, optionOne, optionTwo } = usersObj[authedUser]
-
-  // console.log("id is:", id);
-  // console.log("answers is:", Object.keys(answers));
-  // console.log("users is:", users);
   useEffect(()=>{
     dispatch(handleInitialData())
   },[]);
