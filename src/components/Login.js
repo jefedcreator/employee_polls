@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { handleLogin } from '../actions/authedUser'
 
 
@@ -9,6 +9,8 @@ const Login = ({dispatch}) => {
         username:"",
         password:""
     })
+
+    const { state } = useLocation()
 
     const navigate = useNavigate()
 
@@ -20,7 +22,7 @@ const Login = ({dispatch}) => {
     const handleClick = (e) =>{
         e.preventDefault()
         dispatch(handleLogin(details.username,details.password))
-        navigate('/questions')
+        // navigate(state?.path || '/questions')
         setDetails({username:"",password:""})
     }
 

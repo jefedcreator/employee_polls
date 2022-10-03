@@ -21,7 +21,7 @@ const Leaderboard = ({users}) => {
 }
 
 const mapStateToProps = ({ users }) => ({
-    users: Object.keys(users).sort((a,b) => users[b].questions.length - users[a].questions.length),
+    // users: Object.keys(users).sort((a,b) => users[b].questions.length - users[a].questions.length && users[b].Object.keys(answers).length - users[a].Object.keys(answers).length),
   })
 
 export default connect(mapStateToProps)(Leaderboard)

@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams, Navigate } from "react-router-dom";
 import { handleVoteQuestion } from '../actions/questions';
 import { BsCheck } from "react-icons/bs";
 
 
 const withRouter = (Component) => {
+    
     const ComponentWithRouterProp = (props) => {
       let location = useLocation();
       let navigate = useNavigate();
@@ -17,6 +18,12 @@ const withRouter = (Component) => {
 };
 
 const Questionpage = ({question, authedUser, dispatch, user, users}) => {
+
+    // useEffect(()=>{
+    //     if (question == undefined) {
+    //        return <Navigate to="/error" replace />
+    //     }
+    // },[])
 
     const { id, author, optionOne, optionTwo } = question
 
@@ -40,7 +47,6 @@ const Questionpage = ({question, authedUser, dispatch, user, users}) => {
         let percent = (votes2 / totalVotes) * 100;
         return parseInt(percent)
     }
-
 
     const handleVote = (e) =>{
         const voteId = Number(e.target.id)
@@ -137,7 +143,7 @@ const mapStateToProps = ({ questions, authedUser, users },props) => {
     const question = questions[id];
     const user = users[authedUser];
     return {
-        question,
+        question: question !== undefined ? question : undefined,
         authedUser,
         user,
         users
