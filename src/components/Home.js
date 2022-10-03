@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Questionpage from './Questionpage';
 import Poll from './Poll';

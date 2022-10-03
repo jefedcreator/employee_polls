@@ -1,6 +1,4 @@
-import questions from "../reducers/questions";
 import { saveQuestionAnswer, saveQuestion } from "../utils/api";
-import { handleInitialData } from "./shared";
 import {addAnswerUser, addQuestionUser} from "./users";
 
 export const ADD_QUESTIONS = "ADD_QUESTIONS";
@@ -33,9 +31,7 @@ function voteQuestions(qid, authedUser, voteId) {
 
 export function handleVoteQuestion(info){
     return (dispatch) =>{
-        // const {authedUser} = getState()
         const {authedUser, qid, voteId} = info
-        // dispatch(voteQuestions(info));
         return saveQuestionAnswer(authedUser,qid,voteId)
         .then(() =>{
             dispatch(voteQuestions(qid,authedUser,voteId));

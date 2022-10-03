@@ -143,7 +143,7 @@ const mapStateToProps = ({ questions, authedUser, users },props) => {
     const question = questions[id];
     const user = users[authedUser];
     return {
-        question: question !== undefined ? question : undefined,
+        question,
         authedUser,
         user,
         users

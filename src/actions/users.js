@@ -15,7 +15,7 @@ export function addAnswerUser(authedUser, qid, voteId) {
         type: ADD_ANSWER_USER,
         authedUser,
         qid,
-        answer : voteId == 1 ? "optionOne" : "optionTwo",
+        answer : voteId === 1 ? "optionOne" : "optionTwo",
     };
 }
 

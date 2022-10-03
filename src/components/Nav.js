@@ -7,7 +7,7 @@ const Nav = ({authedUser, dispatch, users}) => {
   const navigate = useNavigate()
   const handleLogOut = () => {
     dispatch(setAuthedUser(null))
-    navigate('/')
+    navigate('/questions')
   }
 
   const { avatarURL } = users[authedUser]

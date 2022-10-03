@@ -12,7 +12,9 @@ const Dashboard = ({questions, authedUser, usersObj}) => {
 
   return  (
     <div className='w-full h-4/5'>
-          <button onClick={handleToggle}>{toggle === false ? "Show unaswered" : "Show answered"}</button>
+          <button onClick={handleToggle}
+          className='bg-indigo-500 px-3 py-2 text-slate-200 cursor-pointer text-center'
+          >{toggle === false ? "Show unaswered" : "Show answered"}</button>
           {
             toggle === false ?
             <div className='w-full h-full py-5'>

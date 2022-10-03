@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { useNavigate, useLocation } from 'react-router-dom'
+// import { useNavigate, useLocation } from 'react-router-dom'
 import { handleLogin } from '../actions/authedUser'
 
 
@@ -10,9 +10,9 @@ const Login = ({dispatch}) => {
         password:""
     })
 
-    const { state } = useLocation()
+    // const { state } = useLocation()
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const handleChange = (e) =>{
         const {name, value} = e.target;
