@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Question from './Question'
 
 const Dashboard = ({questions, authedUser, usersObj}) => {
-  const[toggle, setToggle] = useState(false)
+  const[toggle, setToggle] = useState(true)
   const { answers } = usersObj[authedUser]
 
   const handleToggle = () => {
