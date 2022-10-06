@@ -7,25 +7,28 @@ This project was bootstrapped with Create React App. using the Redux and Redux T
 
 ### Login
 Use the input form to impersonate one of the "users" and login with an id and password. You must be an authoriazed user in order to use the app.
-![Screenshot (114)](https://user-images.githubusercontent.com/72661662/194308621-6fbde58f-4fca-406b-9081-456df2a3e81a.png)
+![Screenshot (114)](https://user-images.githubusercontent.com/72661662/194309724-59b2143b-c868-4fba-8ade-ce272c128a6b.png)
 
 
 ### Dashboard
 View and sort poll questions currently available if they are answered or unanswered.
-![Screenshot (115)](https://user-images.githubusercontent.com/72661662/194308662-e583154a-30c5-4306-bfce-9a4019ac6988.png)
+![Screenshot (115)](https://user-images.githubusercontent.com/72661662/194309761-ab090b9c-3c25-48a8-8991-838b6929413e.png)
+
 
 
 ### Polls
 View, answer, and create poll questions.
-![Screenshot (116)](https://user-images.githubusercontent.com/72661662/194308708-0b3a2adf-bd41-452c-9f93-9578a67b925b.png)
-![Screenshot (117)](https://user-images.githubusercontent.com/72661662/194308763-b19d21d3-8ab3-4463-a1df-e3b15f170200.png)
-![Screenshot (119)](https://user-images.githubusercontent.com/72661662/194308822-a594a5d3-e176-45c7-8414-ed710c8f5199.png)
+![Screenshot (116)](https://user-images.githubusercontent.com/72661662/194309800-d7fb16ea-aff1-4a96-b23b-4f40fdd9dc02.png)
+![Screenshot (117)](https://user-images.githubusercontent.com/72661662/194309816-b1c5b27d-8f83-4b4c-90b7-5594f33d8820.png)
+![Screenshot (119)](https://user-images.githubusercontent.com/72661662/194309829-fce577c6-f731-4d29-9f6a-58fabf8a2136.png)
+
 
 
 
 ### Leaderboard
 See employee scores sorted by polls answered and created.
-![Screenshot (118)](https://user-images.githubusercontent.com/72661662/194308863-e6e19169-c119-40e4-b525-b7ad22a40d23.png)
+![Screenshot (118)](https://user-images.githubusercontent.com/72661662/194309885-3c5805d0-3e76-4330-bdca-b5a9a2636da3.png)
+
 
 
 ## Installation
